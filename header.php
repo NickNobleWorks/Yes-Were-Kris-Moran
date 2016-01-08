@@ -17,6 +17,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+<meta name="description" content="Set decorator, production designer, and art director based in New York City. Work includes Moonrise Kingdom, Doubt, The Darjeeling Limited, Dark Horse...">
+
 <?php wp_head(); ?>
 </head>
 
