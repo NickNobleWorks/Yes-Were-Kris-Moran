@@ -10,10 +10,9 @@ var gulp  = require('gulp'),
 // Get tabs on our files
 var paths = {
       scss: './scss/**.scss',
-      css: './css/',
+      css: './',
       js: './js/*.js',
       imgs: './**',
-      fonts: './fonts/**',
       templates: './templates/*.template.html',
     };
 
