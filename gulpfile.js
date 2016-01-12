@@ -9,7 +9,7 @@ var gulp  = require('gulp'),
 
 // Get tabs on our files
 var paths = {
-      scss: './scss/**.scss',
+      scss: './scss/**',
       css: './',
       js: './js/*.js',
       imgs: './**',
@@ -20,9 +20,7 @@ var paths = {
 // Default `gulp` listening to stuff as you work
 // -----------------------------------------------
 
-gulp.task('default', ['styles',  'watch']); 
-
-gulp.task('watch', function() {
+gulp.task('default', function() {
 
   gulp.watch(paths.scss, ['styles']);
 
