@@ -19,6 +19,9 @@
 
 <meta name="description" content="Set decorator, production designer, and art director based in New York City. Work includes Moonrise Kingdom, Doubt, The Darjeeling Limited, Dark Horse...">
 
+<script src="https://use.typekit.net/aqg6ydm.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 <?php wp_head(); ?>
 </head>
 
