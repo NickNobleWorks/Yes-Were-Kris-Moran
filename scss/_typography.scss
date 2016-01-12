@@ -1,3 +1,7 @@
+body{
+  text-align: center;
+}
+
 body,
 button,
 input,
@@ -6,19 +10,66 @@ textarea {
 	color: $color__text-main;
 	font-family: $font__main;
 	line-height: $font__line-height-body;
-}
 
-h1{
-  font-family: $font__headings;
-  text-align: center;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125em;
+  padding: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
+  a{
+    text-decoration: none;
+  }
 }
 
-p {
+h1, h2{
+  font-family: $font__headings;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1{
+  font-size: 8em;
+  line-height: 1.125em;
+  margin-top: 0.1875em;
+  margin-bottom: 0em;
+}
+
+h2 {
+  font-size: 4em;
+  line-height: 1.125em;
+  margin-top: 0.375em;
+  margin-bottom: 0.375em;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 2em;
+  line-height: 1.5em;
+  margin-top: 0.75em;
+  margin-bottom: 0em;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+}
+
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0em;
   margin-bottom: 1.5em;
 }
 
@@ -42,12 +93,55 @@ a {
   }
 }
 
+blockquote, q {
+  quotes: "" "";
+
+  &:before,
+  &:after {
+    content: "";
+  }
+}
+
+ul, ol {
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
 dfn, cite, em, i {
   font-style: italic;
 }
 
-blockquote {
-  margin: 0 1.5em;
+b, strong, em, small, code {
+  line-height: 1;
+}
+
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
 }
 
 address {
@@ -58,10 +152,9 @@ pre {
   background: $color__background-pre;
   font-family: $font__pre;
   line-height: $font__line-height-pre;
-  margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
-  padding: 1.6em;
+  padding: 1.5em;
 }
 
 code, kbd, tt, var {
@@ -80,30 +173,4 @@ mark, ins {
 
 big {
   font-size: 125%;
-}
-
-ul, ol {
-  margin: 0 0 1.5em 3em;
-}
-
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
-}
-
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin: 0 1.5em 1.5em;
 }

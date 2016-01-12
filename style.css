@@ -231,6 +231,10 @@ th {
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+body {
+  text-align: center;
+}
+
 body,
 button,
 input,
@@ -239,12 +243,10 @@ textarea {
   color: #404040;
   font-family: "adobe-caslon-pro", "Adobe Caslon Pro", "Caslon", "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
   line-height: 1.5;
-}
-
-h1 {
-  font-family: "acumin-pro-extra-condensed", Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
-  text-align: center;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125em;
+  padding: 1.5em;
 }
 
 h1,
@@ -255,13 +257,72 @@ h5,
 h6 {
   clear: both;
 }
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  text-decoration: none;
+}
 
-p {
+h1,
+h2 {
+  font-family: "acumin-pro-extra-condensed", Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 8em;
+  line-height: 1.125em;
+  margin-top: 0.1875em;
+  margin-bottom: 0em;
+}
+
+h2 {
+  font-size: 4em;
+  line-height: 1.125em;
+  margin-top: 0.375em;
+  margin-bottom: 0.375em;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 2em;
+  line-height: 1.5em;
+  margin-top: 0.75em;
+  margin-bottom: 0em;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+}
+
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+  margin-top: 0em;
   margin-bottom: 1.5em;
 }
 
 a {
-  color: royalblue;
+  color: #268ed9;
 }
 a:visited {
   color: purple;
@@ -279,6 +340,41 @@ a:active {
   outline: 0;
 }
 
+blockquote,
+q {
+  quotes: "" "";
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
 dfn,
 cite,
 em,
@@ -286,8 +382,23 @@ i {
   font-style: italic;
 }
 
-blockquote {
-  margin: 0 1.5em;
+b,
+strong,
+em,
+small,
+code {
+  line-height: 1;
+}
+
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
 }
 
 address {
@@ -298,10 +409,9 @@ pre {
   background: #eee;
   font-family: "Courier 10 Pitch", Courier, monospace;
   line-height: 1.6;
-  margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
-  padding: 1.6em;
+  padding: 1.5em;
 }
 
 code,
@@ -327,33 +437,6 @@ big {
   font-size: 125%;
 }
 
-ul,
-ol {
-  margin: 0 0 1.5em 3em;
-}
-
-ul {
-  list-style: disc;
-}
-
-ol {
-  list-style: decimal;
-}
-
-li > ul,
-li > ol {
-  margin-bottom: 0;
-  margin-left: 1.5em;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin: 0 1.5em 1.5em;
-}
-
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -373,22 +456,9 @@ body {
   /* Fallback for when there is no custom background color defined. */
 }
 
-blockquote,
-q {
-  quotes: "" "";
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-}
-
 hr {
-  background-color: #ccc;
-  border: 0;
-  height: 1px;
-  margin-bottom: 1.5em;
+  border: 1px solid;
+  margin: -1px 0;
 }
 
 img {
