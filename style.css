@@ -468,6 +468,11 @@ img {
   /* Adhere to container width. */
 }
 
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -573,51 +578,30 @@ input[type="submit"]:focus {
 .main-navigation {
   clear: both;
   display: block;
-  float: left;
   width: 100%;
+  font-family: "acumin-pro-extra-condensed", Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", "sans serif";
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 4em;
+  line-height: 1.125em;
+  margin-top: 0.375em;
+  margin-bottom: 0.375em;
 }
 .main-navigation ul {
-  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
 .main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 1.5em;
-  left: -999em;
-  z-index: 99999;
-}
-.main-navigation ul ul ul {
-  left: -999em;
-  top: 0;
-}
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-  left: 100%;
-}
-.main-navigation ul ul a {
-  width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
+  display: none;
 }
 .main-navigation li {
-  float: left;
-  position: relative;
+  display: inline-block;
 }
 .main-navigation a {
   display: block;
   text-decoration: none;
-}
-
-@media screen and (min-width: 37.5em) {
-  .main-navigation ul {
-    display: block;
-  }
+  margin: 0.75rem;
 }
 
 .site-main .comment-navigation,
