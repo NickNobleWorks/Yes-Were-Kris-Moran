@@ -19,8 +19,9 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 1.5em auto 0 auto;
   text-align: left;
+  max-width: 800px;
 }
 
 .page-links {
