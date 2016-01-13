@@ -7,6 +7,11 @@
  * @package Km
  */
 
+// Show all errors, without needing to go back to wp-config.php
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+    
+
 if ( ! function_exists( 'km_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
