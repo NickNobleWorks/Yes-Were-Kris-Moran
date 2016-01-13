@@ -30,6 +30,8 @@
     ?>
   </header><!-- .entry-header -->
 
+<?php if ( is_single() ) : ?>
+  
   <div class="entry-content">
     <?php
       the_content( sprintf(
@@ -48,4 +50,7 @@
   <footer class="entry-footer">
     <?php km_entry_footer(); ?>
   </footer><!-- .entry-footer -->
+
+<?php endif; ?>
+
 </article><!-- #post-## -->
