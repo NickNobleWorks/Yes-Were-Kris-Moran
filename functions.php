@@ -110,60 +110,68 @@ add_action( 'after_setup_theme', 'km_content_width', 0 );
 // }
 // add_action( 'widgets_init', 'km_widgets_init' );
 
-// Register Custom Post Type
-function register_portfolio_post_type() {
+/**
+ * Add "Project" post-type.
+ */
 
-	$labels = array(
-		'name'                  => _x( 'Portfolio Items', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Portfolio Item', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Portfolio Items', 'text_domain' ),
-		'name_admin_bar'        => __( 'Portfolio Item', 'text_domain' ),
-		'archives'              => __( 'Portfolio Item Archives', 'text_domain' ),
-		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-		'all_items'             => __( 'All Portfolio Items', 'text_domain' ),
-		'add_new_item'          => __( 'Add New Portfolio Item', 'text_domain' ),
-		'add_new'               => __( 'Add New ', 'text_domain' ),
-		'new_item'              => __( 'New Item', 'text_domain' ),
-		'edit_item'             => __( 'Edit Item', 'text_domain' ),
-		'update_item'           => __( 'Update Item', 'text_domain' ),
-		'view_item'             => __( 'View Item', 'text_domain' ),
-		'search_items'          => __( 'Search Item', 'text_domain' ),
-		'not_found'             => __( 'Not found', 'text_domain' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Featured Image', 'text_domain' ),
-		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
-		'items_list'            => __( 'Items list', 'text_domain' ),
-		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
-		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
-	);
-	$args = array(
-		'label'                 => __( 'Portfolio Item', 'text_domain' ),
-		'description'           => __( 'Things Kris has done', 'text_domain' ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
-		'hierarchical'          => false,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-images-alt2',
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => true,		
-		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
-		'capability_type'       => 'page',
-	);
-	register_post_type( 'portfolio', $args );
+function project_init() {
+	register_post_type( 'project', array(
+		'labels'            => array(
+			'name'                => __( 'Projects', 'km' ),
+			'singular_name'       => __( 'Project', 'km' ),
+			'all_items'           => __( 'All Projects', 'km' ),
+			'new_item'            => __( 'New project', 'km' ),
+			'add_new'             => __( 'Add New', 'km' ),
+			'add_new_item'        => __( 'Add New project', 'km' ),
+			'edit_item'           => __( 'Edit project', 'km' ),
+			'view_item'           => __( 'View project', 'km' ),
+			'search_items'        => __( 'Search projects', 'km' ),
+			'not_found'           => __( 'No projects found', 'km' ),
+			'not_found_in_trash'  => __( 'No projects found in trash', 'km' ),
+			'parent_item_colon'   => __( 'Parent project', 'km' ),
+			'menu_name'           => __( 'Projects', 'km' ),
+		),
+		'public'            => true,
+		'hierarchical'      => false,
+		'show_ui'           => true,
+		'show_in_nav_menus' => true,
+		'supports'          => array( 'title', 'editor' ),
+		'has_archive'       => true,
+		'rewrite'           => true,
+		'query_var'         => true,
+		'menu_position'			=> 5,
+		'menu_icon'         => 'dashicons-images-alt2',
+	) );
 
 }
-add_action( 'init', 'register_portfolio_post_type', 0 );
+add_action( 'init', 'project_init' );
+
+function project_updated_messages( $messages ) {
+	global $post;
+
+	$permalink = get_permalink( $post );
+
+	$messages['project'] = array(
+		0 => '', // Unused. Messages start at index 1.
+		1 => sprintf( __('Project updated. <a target="_blank" href="%s">View project</a>', 'km'), esc_url( $permalink ) ),
+		2 => __('Custom field updated.', 'km'),
+		3 => __('Custom field deleted.', 'km'),
+		4 => __('Project updated.', 'km'),
+		/* translators: %s: date and time of the revision */
+		5 => isset($_GET['revision']) ? sprintf( __('Project restored to revision from %s', 'km'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+		6 => sprintf( __('Project published. <a href="%s">View project</a>', 'km'), esc_url( $permalink ) ),
+		7 => __('Project saved.', 'km'),
+		8 => sprintf( __('Project submitted. <a target="_blank" href="%s">Preview project</a>', 'km'), esc_url( add_query_arg( 'preview', 'true', $permalink ) ) ),
+		9 => sprintf( __('Project scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview project</a>', 'km'),
+		// translators: Publish box date format, see http://php.net/date
+		date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( $permalink ) ),
+		10 => sprintf( __('Project draft updated. <a target="_blank" href="%s">Preview project</a>', 'km'), esc_url( add_query_arg( 'preview', 'true', $permalink ) ) ),
+	);
+
+	return $messages;
+}
+add_filter( 'post_updated_messages', 'project_updated_messages' );
+
 
 /**
  * Enqueue scripts and styles.
