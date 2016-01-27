@@ -11,24 +11,27 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   
+  <?php if ( !is_single() ) : ?>
+  <a href="<?php the_permalink() ?>" rel="bookmark">
+  <?php endif; ?>
+
   <header 
   <?php if (has_post_thumbnail()) : 
     $thumb_id = get_post_thumbnail_id(); 
     $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'full', true);
     $thumb_url = $thumb_url_array[0]; ?>
-    class="entry-header overlay" style="background-image: url('<?php echo $thumb_url ?>');">
+    class="entry-header still" style="background-image: url('<?php echo $thumb_url ?>');">
   <?php else : // otherwise just close class attribute quotes: ?>
     class="entry-header">
   <?php endif; // close tag ?>
 
-    <?php
-      if ( is_single() ) {
-        the_title( '<h2 class="entry-title">', '</h2>' );
-      } else {
-        the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-      }
-    ?>
+    <?php the_title( '<h3 class="entry-title">', '</h3>' );?>
+
   </header><!-- .entry-header -->
+
+  <?php if ( !is_single() ) : ?> 
+  </a>
+  <?php endif; ?>
 
 <?php if ( is_single() ) : ?>
   

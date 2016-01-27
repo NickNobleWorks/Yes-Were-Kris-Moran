@@ -21,6 +21,11 @@
 .entry-summary {
 	margin-top: 1.5em;
   text-align: left;
+  
+  img{
+    display: block;
+    margin-bottom: $space;
+  }
 }
 
 .page-links {
