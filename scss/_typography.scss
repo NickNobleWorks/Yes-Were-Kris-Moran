@@ -74,15 +74,15 @@ p, ul, ol, pre, table, blockquote {
 }
 
 a {
-  color: $color__link;
+  color: inherit;
 
   &:visited {
-    color: $color__link-visited;
+
   }
   &:hover,
   &:focus,
   &:active {
-    color: $color__link-hover;
+
   }
   &:focus {
     outline: thin dotted;

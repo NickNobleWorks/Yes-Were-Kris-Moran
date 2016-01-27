@@ -240,7 +240,7 @@ button,
 input,
 select,
 textarea {
-  color: #404040;
+  color: #000;
   font-family: "adobe-caslon-pro", "Adobe Caslon Pro", "Caslon", "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
   line-height: 1.5;
   font-weight: 400;
@@ -322,15 +322,7 @@ blockquote {
 }
 
 a {
-  color: #268ed9;
-}
-a:visited {
-  color: purple;
-}
-a:hover,
-a:focus,
-a:active {
-  color: midnightblue;
+  color: inherit;
 }
 a:focus {
   outline: thin dotted;
@@ -685,6 +677,11 @@ input[type="submit"]:focus {
   margin-right: auto;
 }
 
+.site-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -771,9 +768,8 @@ input[type="submit"]:focus {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em auto 0 auto;
+  margin-top: 1.5em;
   text-align: left;
-  max-width: 800px;
 }
 
 .page-links {
