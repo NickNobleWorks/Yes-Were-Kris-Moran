@@ -845,3 +845,10 @@ iframe,
 object {
   max-width: 100%;
 }
+
+.splash {
+  width: 70%;
+  height: auto;
+  max-height: 100vh;
+  max-width: auto;
+}

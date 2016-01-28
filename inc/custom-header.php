@@ -25,7 +25,7 @@ function km_custom_header_setup() {
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
-		'height'                 => 250,
+		'height'                 => 550,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'km_header_style',
 	) ) );
