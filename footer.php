@@ -19,6 +19,12 @@
   </nav><!-- #site-navigation -->
   <?php endif; ?>
 
+  <?php if ( is_active_sidebar( 'footer-widget-area' ) ) : ?>
+    <div class="footer-widgets">
+      <?php dynamic_sidebar( 'footer-widget-area' ); ?>
+    </div>
+  <?php endif; ?>
+  
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<p>Copyright &copy;<?php echo date("Y"); ?> Kris Moran</p>

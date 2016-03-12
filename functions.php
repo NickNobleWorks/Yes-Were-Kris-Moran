@@ -102,18 +102,19 @@ add_action( 'after_setup_theme', 'km_content_width', 0 );
 //  *
 //  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
 //  */
-// function km_widgets_init() {
-// 	register_sidebar( array(
-// 		'name'          => esc_html__( 'Sidebar', 'km' ),
-// 		'id'            => 'sidebar-1',
-// 		'description'   => '',
-// 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-// 		'after_widget'  => '</section>',
-// 		'before_title'  => '<h2 class="widget-title">',
-// 		'after_title'   => '</h2>',
-// 	) );
-// }
-// add_action( 'widgets_init', 'km_widgets_init' );
+
+function km_widgets_init() {
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widget Area', 'km' ),
+		'id'            => 'footer-widget-area',
+		'description'   => '',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'km_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
