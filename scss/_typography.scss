@@ -31,7 +31,7 @@ h1, h2, h3{
 }
 
 h1{
-  font-size: 23vw; // 8em;
+  font-size: 8em;
   line-height: 1.125em;
   margin-top: 0.1875em;
   margin-bottom: 0em;
@@ -172,4 +172,8 @@ mark, ins {
 
 big {
   font-size: 125%;
+}
+
+.fittext{
+  font-size: 23vw;
 }
