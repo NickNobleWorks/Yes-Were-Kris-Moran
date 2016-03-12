@@ -16,8 +16,6 @@ get_header(); ?>
 
       get_template_part( 'template-parts/content', 'project' );
 
-      the_post_navigation();
-
     endwhile; // End of the loop.
     ?>
 
